@@ -1,0 +1,50 @@
+<html>
+<head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> 
+<style>
+.items{
+	width:100px;
+	height:80px;
+	overflow:hidden;
+	background-color:rgba(0,100,200,0.5);
+	border-radius: 8%;
+	margin: 10px;
+	box-shadow: inset 0 0 8px rgba(0,0,255,0.1) , 0 0 16px rgba(0,0,255,0.2);
+}
+
+.quantity {
+	width:100%;
+	font-size:70px;
+	font-family:cursive;
+	position:relative;
+	text-align:center;
+	top:100%;
+	
+}
+
+
+
+</style>
+
+<script>
+function shift()
+{
+  $("#div").animate({top:'0%'},200,focuscursor);  
+  
+}
+function focuscursor()
+{
+	document.getElementById("div").focus();
+}
+function shiftback()
+{
+	$("#div").animate({top:'120%'},200); 	
+}
+</script>
+
+</head>
+<body>
+<div class="items" onclick="">
+<div onclick="shift()" style="width:100px;height:80px;position:absolute;text-align:center">noodels<br>rs 40</div>
+<input type="text" id="div" class="quantity" onblur="shiftback()" />
+</div>
