@@ -3,12 +3,26 @@
 <head>
   <script type="text/javascript" src="./lists.js">
   </script>
+  <script src="./jquery-latest.min.js" type="text/javascript">
+  </script>
   <script type="text/javascript" src="./menuItems.js">
   </script>
   <script type="text/javascript" >
     function populate(){
     createList();
     }
+    function shift(e)
+    {
+    $('#'+e).animate({top:'0%'},200,focuscursor(e));  
+    }
+    function focuscursor(e)
+    {
+    document.getElementById(e).focus();
+    }
+    function shiftback(e)
+    {
+    $('#'+e).animate({top:'120%'},200); 
+    }    
   </script>
   <link rel="stylesheet" type="text/css" href="profile.css"/>
 </head>
@@ -25,13 +39,8 @@
   </div>
   <div id="center_down">
     <div id="menuList">
-      <ul>
-	<li>
-	  <div class="items">
-	    <span>Scheshwansss</span>
-	    <input type="text" size="4"/>
-	  </div>
-	</li>
+      <ul id="menu">
+	
       </ul>
     </div>
   </div>

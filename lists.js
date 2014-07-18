@@ -31,8 +31,26 @@ var catalogList=document.getElementById("list");
 function menuPopulate(categoryId){
     var submenu=menu[0].HKB[categoryId].category_content;
     var menuList=document.getElementById("menu");
+    menuList.innerHTML="";
     for(var i=0;i<submenu.length;i++){
-	alert(submenu[i].name);
-	
+
+	li=document.createElement("li");
+	li.className="items";
+	menuList.appendChild(li);
+
+	div1=document.createElement("div");
+	var id_name='men'+i;
+	div1.setAttribute("onclick","shift('"+id_name+"')");
+	div1.className="innerDivLi";
+	div1.innerHTML=submenu[i].name+"<br/>rs "+submenu[i].cost;
+	li.appendChild(div1);
+
+	input=document.createElement("input");
+	input.setAttribute("onblur","shiftback('"+id_name+"')");
+	input.className="quantity";
+	input.type="text";
+	input.id=id_name;
+	li.appendChild(input);
+
     }
 }
