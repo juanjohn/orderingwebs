@@ -34,7 +34,7 @@
         $('#'+e).animate({top:'120%'},200); 
 
         ym=parseInt(document.getElementById(e).value)
-        update_chart(e,ym);
+        update_chart_main(e,ym);
         //start coloring on menu on the basic of quantity
         y=ym*200/10;
         if(y>255)y=255;
@@ -91,19 +91,32 @@
 
 
 <script>
-  function update_chart(e,qn)
+  function update_chart_main(e,qn)
     {
       list[e]=qn;
       display_chart();
     }
 
+
+
+    function update_chart(e,qn)
+    {
+
+      list[e]=qn;
+      display_chart();
+      menuPopulate(state_cat);
+    }
+
+
   function add_to_chart(e)
     {
+      
       if(list[e]==undefined) 
         list[e]=1 ;
       else
         list[e]++;
       display_chart();
+      menuPopulate(state_cat);
     }
 
   function remove_from_chart(e)
@@ -112,11 +125,12 @@
       if(list[e]<=1){ delete list[e]; display_chart(); return ;}
       list[e]--;
       display_chart();
+      menuPopulate(state_cat);
     }
 
   function display_chart()
     {
-
+      
       var bill=document.getElementById("right");
       bill.innerHTML="<div style='padding:5px;font-family:courier;height:40px; box-shadow: 0 8px 6px -6px  rgba(0,200,255,0.4);margin:9px;text-align:center;font-family:courier;font-size:20px;'>SELECTED MENU </div>";
 

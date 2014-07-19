@@ -1,3 +1,4 @@
+var state_cat=1;
 
 function createList()
 {
@@ -29,6 +30,8 @@ var catalogList=document.getElementById("list");
 }
 
 function menuPopulate(categoryId){
+	state_cat=categoryId;
+	
     var submenu=menu[0].HKB[categoryId].category_content;
     var menuList=document.getElementById("menu");
     menuList.innerHTML="";
@@ -48,6 +51,7 @@ function menuPopulate(categoryId){
 	input=document.createElement("input");
 	input.setAttribute("onblur","shiftback('"+id_name+"')");
 	input.className="quantity";
+	if(list[id_name]!=undefined)input.value=list[id_name];
 	input.type="text";
 	input.id=id_name;
 	li.appendChild(input);
