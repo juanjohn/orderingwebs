@@ -1,78 +1,21 @@
-var menu=[{"HKB" : [
+var menu =[{"HKB" : [
 	{
 	"category_name" : "chinese",
-	"category_content" : [
-		{
-		"name" : "noodlasasas asasaases",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		},
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		},
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		}
-		]
+	"category_content" : [ 'it1','it2','it3','it4','it5','it6','it7']
 	},
 	{
 	"category_name" : "chinese",
-	"category_content" : [
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		},
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		},
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		},
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		},
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		},
-		{
-		"name" : "noodles",
-		"cost" : "40.50",
-		"class" : "veg",
-		"freq" : "0"
-		}
-		]
+	"category_content" : [ 'it1','it2','it3','it4','it5','it6','it7']
 	},
-	{
-	"subject_name" : "biology",
-	"exps" : [
-		]
-	},
-	{
-	"subject_name" : "mathematics",
-	"exps" : [
 	]
-	}
-]
 }];
-JSON.stringify(menu);
+
+
+
+list={'it1':2 , 'it2':3 , 'it3':4 , 'it4':1};
+
+
+jack={'it1':{'name':'orange','cost':20 } , 'it2':{'name':'pinaaple','cost':15 } ,'it3':{'name':'orange','cost':20 } ,'it4':{'name':'orange','cost':20 },'it5':{'name':'orange','cost':20 },'it6':{'name':'orange','cost':20 },'it7':{'name':'orange','cost':20 }};
+
+
+
