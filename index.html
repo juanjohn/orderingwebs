@@ -7,23 +7,58 @@
   </script>
   <script type="text/javascript" src="./menuItems.js">
   </script>
+  
+ 
+
+
+
   <script type="text/javascript" >
-    function populate(){
-    createList();
-    }
+    
+    function populate()
+      {
+        createList();
+      }
+    
     function shift(e)
-    {
-    $('#'+e).animate({top:'0%'},200,focuscursor(e));  
-    }
+      {
+        $('#'+e).animate({top:'0%'},200,focuscursor(e));  
+      }
+
     function focuscursor(e)
-    {
-    document.getElementById(e).focus();
-    }
+      {
+        document.getElementById(e).focus();
+      }
+    
     function shiftback(e)
-    {
-    $('#'+e).animate({top:'120%'},200); 
-    }    
+      {
+        $('#'+e).animate({top:'120%'},200); 
+
+        ym=parseInt(document.getElementById(e).value)
+        update_chart_main(e,ym);
+        //start coloring on menu on the basic of quantity
+        y=ym*200/10;
+        if(y>255)y=255;
+        x=255-y;
+        document.getElementById(e+"up").style.background="rgba(0,"+y+","+x+",0.3)";
+        //end
+        
+        //start include in main chart
+        
+      }    
   </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
   <link rel="stylesheet" type="text/css" href="profile.css"/>
 </head>
 <body onload="populate()">
@@ -33,17 +68,132 @@
   <div id="center_up">
     <div id="category">
       <ul id="list">
-
       </ul>
     </div>
   </div>
   <div id="center_down">
     <div id="menuList">
       <ul id="menu">
-	
       </ul>
     </div>
   </div>
-  <div id="right"></div>
+
+
+<div id="right" style="overflow:auto;height:500px">
+  <div style="padding:5px;font-family:courier;height:40px; box-shadow: 0 8px 6px -6px  rgba(0,200,255,0.4);margin:9px;text-align:center;font-family:courier;font-size:20px;">SELECTED MENU </div>
+     
+
+</div>
+
+
+
+
+
+
+<script>
+  function update_chart_main(e,qn)
+    {
+      list[e]=qn;
+      display_chart();
+    }
+
+
+
+    function update_chart(e,qn)
+    {
+
+      list[e]=qn;
+      display_chart();
+      menuPopulate(state_cat);
+    }
+
+
+  function add_to_chart(e)
+    {
+      
+      if(list[e]==undefined) 
+        list[e]=1 ;
+      else
+        list[e]++;
+      display_chart();
+      menuPopulate(state_cat);
+    }
+
+  function remove_from_chart(e)
+    {
+      if(list[e]==undefined)return;
+      if(list[e]<=1){ delete list[e]; display_chart(); return ;}
+      list[e]--;
+      display_chart();
+      menuPopulate(state_cat);
+    }
+
+  function display_chart()
+    {
+      
+      var bill=document.getElementById("right");
+      bill.innerHTML="<div style='padding:5px;font-family:courier;height:40px; box-shadow: 0 8px 6px -6px  rgba(0,200,255,0.4);margin:9px;text-align:center;font-family:courier;font-size:20px;'>SELECTED MENU </div>";
+
+      for(selected in list)
+      {
+       var itemCode=selected;
+      var quantity= list[selected];
+      if(isNaN(quantity) || quantity<1)continue;
+      var div1=document.createElement("div");
+      div1.setAttribute("data-code",itemCode);
+      div1.className="billDiv1";
+      bill.appendChild(div1);
+
+
+      var div2=document.createElement("div");
+      div2.className="billDiv2";
+
+      var div3=document.createElement("div");
+      div3.className="billDiv3";
+      div3.innerHTML=quantity*jack[itemCode].cost ;
+
+      div1.appendChild(div2);
+      div1.appendChild(div3);
+
+      div4=document.createElement("div");
+      div4.innerHTML=jack[itemCode].name;
+
+      div5=document.createElement("div");
+      div5.className="billDiv5";
+
+      inp=document.createElement("input");
+      inp.className="billInp";
+      inp.value=quantity;
+
+      inp.setAttribute("onchange","update_chart('"+itemCode+"',this.value)");
+
+      but1=document.createElement("button");
+      but1.innerHTML="+";
+      but1.setAttribute("onclick","add_to_chart('"+itemCode+"')");
+
+      but2=document.createElement("button");
+      but2.innerHTML="-";
+      but2.setAttribute("onclick","remove_from_chart('"+itemCode+"')");
+
+
+
+      div2.appendChild(div4);
+
+      div5.appendChild(inp);
+      div5.appendChild(but1);
+      div5.appendChild(but2);
+
+      div2.appendChild(div5);
+      }
+    }
+
+  display_chart();
+</script>
+
+
+
+
+
+
 </body>
 </html>

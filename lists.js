@@ -1,3 +1,4 @@
+var state_cat=1;
 
 function createList()
 {
@@ -29,25 +30,28 @@ var catalogList=document.getElementById("list");
 }
 
 function menuPopulate(categoryId){
+	state_cat=categoryId;
+	
     var submenu=menu[0].HKB[categoryId].category_content;
     var menuList=document.getElementById("menu");
     menuList.innerHTML="";
-    for(var i=0;i<submenu.length;i++){
-
+	for(var i=0;i<submenu.length;i++){
 	li=document.createElement("li");
 	li.className="items";
 	menuList.appendChild(li);
 
 	div1=document.createElement("div");
-	var id_name='men'+i;
+	var id_name=submenu[i];
 	div1.setAttribute("onclick","shift('"+id_name+"')");
 	div1.className="innerDivLi";
-	div1.innerHTML=submenu[i].name+"<br/>rs "+submenu[i].cost;
+	div1.id=id_name+"up";
+	div1.innerHTML=jack[submenu[i]].name+"<br/>rs "+jack[submenu[i]].cost;
 	li.appendChild(div1);
 
 	input=document.createElement("input");
 	input.setAttribute("onblur","shiftback('"+id_name+"')");
 	input.className="quantity";
+	if(list[id_name]!=undefined)input.value=list[id_name];
 	input.type="text";
 	input.id=id_name;
 	li.appendChild(input);

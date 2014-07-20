@@ -108,3 +108,43 @@ li{
     position:absolute;
     text-align:center;
 }
+
+
+
+
+    .billDiv1 {
+        padding:5px;
+        font-family:courier;
+        height:70px; 
+        box-shadow: 0 8px 6px -6px  rgba(0,200,255,0.4);
+        margin:9px;
+    }
+
+    .billDiv2 {
+        position:absolute;
+        left:5px;
+        width:70%;
+        border-right:1px solid black;
+    }
+
+    .billDiv3 {
+        position:absolute;
+        left:72%;
+        width:20%;
+        text-align:center;
+    }
+
+    .billDiv5 {
+        text-align:center;
+    }
+
+    .billInp {
+        width:40%;
+        margin:3px;
+        text-align:center;
+    }
+
+    .billbut{
+        padding:2px;
+        margin:3px;
+    }
