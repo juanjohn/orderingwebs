@@ -17,7 +17,8 @@ var catalogList=document.getElementById("list");
 	li.appendChild(div1);
 	
 	var img=document.createElement("img");
-	img.src="./image.png";
+	if(i==0)
+	img.src="./chinesefood.jpg";
 	img.className="liImg";
 	img.alt=catalog[i][0];
 	div1.appendChild(img);
