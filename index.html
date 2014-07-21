@@ -17,6 +17,9 @@
     function populate()
       {
         createList();
+$(function() {
+    $( "#accordion" ).accordion();
+  });
       }
     
     function shift(e)
@@ -46,25 +49,36 @@
         
       }    
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
   <link rel="stylesheet" type="text/css" href="profile.css"/>
+
+  <link rel="stylesheet" href="accordion/jquery-ui.css">
+  <script src="accordion/jquery-ui.js"></script>
+  <link rel="stylesheet" href="accordion/style.css">
+
 </head>
 <body onload="populate()" >
   <div id="header"></div>
   <div id="foobar"></div>
-  <div id="left"></div>
+  <div id="left">
+    <form id="profileForm" method="post" action="">
+      
+      
+      <div id="accordion">
+	<h3>sdsds</h3>
+	<div><p>CHange your name:
+	    <input type="text" name="name" id="name" placeholder="Your name"/></p>
+	</div>
+	<h3></h3>
+	<div><p>Change the  hostel:
+	    <input type="text" name="hostel" id="hostel" placeholder="Hostel"/></p>
+	</div>
+	<h3>sdsdsd</h3>
+	<div><p>Change the room no:
+	    <input type="text" name="room" id="room" placeholder="Room no"/></p>
+	</div>
+      </div>
+    </form>
+  </div>
   <div id="center_up">
     <div id="category">
       <ul id="list">
@@ -164,7 +178,7 @@
       inp=document.createElement("input");
       inp.className="billInp";
       inp.value=quantity;
-
+	inp.setAttribute("type","text");
       inp.setAttribute("onchange","update_chart('"+itemCode+"',this.value)");
 
       but1=document.createElement("button");
